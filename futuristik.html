@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Website</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffc6;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00ffc6;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #00ffc6;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            color: #0a0a0a;
+            background-color: #00ffc6;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #00ffc6;
+        }
+
+        .section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .about, .contact {
+            background-color: #111;
+        }
+
+        .services {
+            background-color: #0a0a0a;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .neon-button {
+            position: relative;
+            color: #0a0a0a;
+            transition: color 0.3s;
+        }
+
+        .neon-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px;
+            border: 2px solid #00ffc6;
+            transition: transform 0.3s;
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        .neon-button:hover::after {
+            transform: scale(1.3);
+        }
+
+        @keyframes neon-flicker {
+            0%, 100% {
+                text-shadow: 0 0 10px #00ffc6, 0 0 20px #00ffc6, 0 0 30px #00ffc6, 0 0 40px #00ffc6;
+            }
+            50% {
+                text-shadow: 0 0 5px #00ffc6, 0 0 15px #00ffc6, 0 0 20px #00ffc6, 0 0 25px #00ffc6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">NeonTech</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Future</h1>
+            <p>Experience innovation with NeonTech</p>
+            <a href="#services" class="btn neon-button">Explore More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2>About Us</h2>
+        <p>We create cutting-edge technology solutions that redefine the digital world.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">AI Solutions</div>
+            <div class="card">Cyber Security</div>
+            <div class="card">Cloud Computing</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch to start your journey with us.</p>
+        <a href="mailto:info@neontech.com" class="btn neon-button">Send Email</a>
+    </section>
+
+    <script>
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
