@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Navigasi Responsif</title>
+    <style>
+        /* Mengatur styling dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling untuk navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .navbar .brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu-toggle {
+            display: none; /* Tombol toggle tidak terlihat di layar besar */
+            font-size: 18px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Sembunyikan menu di layar kecil */
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #007bff;
+                width: 200px;
+                border-radius: 8px;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex; /* Tampilkan menu saat tombol di klik */
+            }
+
+            .menu-toggle {
+                display: block; /* Tampilkan tombol toggle di layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">Logo</a>
+        <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        // Fungsi untuk toggle menu saat di layar kecil
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
