@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        /* Styling dasar untuk halaman */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Styling untuk tampilan timer */
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timer" id="timer">10</div>
+
+    <script>
+        // Inisialisasi waktu countdown
+        let countdown = 10;
+
+        // Fungsi untuk memperbarui countdown
+        const countdownInterval = setInterval(() => {
+            const timerElement = document.getElementById("timer");
+
+            if (countdown > 0) {
+                timerElement.textContent = countdown;
+                countdown--;
+            } else {
+                timerElement.textContent = "Waktu Habis!";
+                clearInterval(countdownInterval); // Menghentikan countdown
+            }
+        }, 1000); // Update setiap detik (1000 ms)
+    </script>
+
+</body>
+</html>
