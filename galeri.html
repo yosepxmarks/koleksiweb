@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Gambar</title>
+    <style>
+        /* Mengatur styling dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling untuk kontainer galeri */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        /* Styling untuk setiap item gambar */
+        .gallery-item {
+            flex: 1 1 calc(33.333% - 10px); /* Membuat tiga kolom */
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        /* Efek zoom saat hover */
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox styling */
+        .lightbox {
+            display: none; /* Tersembunyi secara default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        /* Close button */
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Galeri Gambar -->
+    <div class="gallery-container">
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 1" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 2" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 3" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 4" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 5" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Gambar 6" onclick="openLightbox(this.src)"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="">
+    </div>
+
+    <script>
+        // Fungsi untuk membuka lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = document.getElementById("lightboxImage");
+            lightboxImage.src = src;
+            lightbox.style.display = "flex";
+        }
+
+        // Fungsi untuk menutup lightbox
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
